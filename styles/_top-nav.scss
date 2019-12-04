@@ -1,0 +1,37 @@
+/*div-elementet = flex-container för nav och loggan*/
+.top-nav-container {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+	background: #dfdddd;
+	padding: 40px 0px 10px 0px;
+	width: 100%;
+	@media (min-width: 550px) {
+		flex-direction: row;
+		align-items: center;
+		padding: 20px 35px;
+	}
+}
+
+/*nav-elementet = flex-container för ul-elementet (menyn)*/
+.top-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 10vh;
+	@media (min-width: 550px) {
+		justify-content: flex-end;
+	}
+}
+
+/*ul-elementet = flex-container för li-elementen*/
+.top-links {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 10px;
+}

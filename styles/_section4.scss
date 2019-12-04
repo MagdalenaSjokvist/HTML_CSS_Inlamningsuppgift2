@@ -1,0 +1,47 @@
+/* SECTION 4*/
+
+.section-4 {
+	background: $bgColorSectionEven;
+}
+
+.section-4 .grid {
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+
+.section-4 article {
+	text-align: left;
+	padding: 15px;
+}
+
+.section-4 .image-wrapper {
+	min-height: 30vh;
+}
+
+//Media query för skärmar >= 750px (Byter från flex till grid)
+@media (min-width: 750px) {
+	.section-4 .grid {
+		min-height: 400px;
+		display: grid;
+		grid-template: 1fr 1fr / 1fr 1fr;
+		grid-row-gap: 20px;
+		grid-column-gap: 20px;
+		justify-content: center;
+	}
+
+	.section-4 article:nth-of-type(1) {
+		grid-area: 1 / 2;
+		align-self: end;
+	}
+
+	.section-4 article:nth-of-type(2) {
+		grid-area: 2 / 2;
+		align-self: start;
+	}
+
+	.section-4 .image-wrapper {
+		grid-area: 1 / 1 / span 2 / span 1;
+	}
+}
