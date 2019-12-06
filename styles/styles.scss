@@ -1,29 +1,13 @@
-@import "./variables";
-@import "./top-nav";
-@import "./header";
-@import "./section1";
-@import "./section2";
-@import "./section3";
-@import "./section4";
-@import "./section5";
-@import "./footer";
-
-/*Exempel på mixin*/
-@mixin flexCenter($direction) {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: $direction;
-}
-
-/*För att använda flexCenter i en selektor: 
-skriv @include flexCenter(column/row);*/
-//Exempel på mixin:
-@mixin media-min-width($minWidth) {
-	@media (min-width: $minWidth) {
-		@content;
-	}
-}
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/top-nav";
+@import "./partials/header";
+@import "./partials/section1";
+@import "./partials/section2";
+@import "./partials/section3";
+@import "./partials/section4";
+@import "./partials/section5";
+@import "./partials/footer";
 
 * {
 	box-sizing: border-box;
@@ -33,32 +17,32 @@ skriv @include flexCenter(column/row);*/
 
 body {
 	width: 100%;
-	max-width: 1000px;
 	min-width: 200px;
 	font-family: $primaryFont;
 }
 
 section {
-	padding: 4vh 0vh 0 0vh;
-	@media (min-width: 550px) {
+	padding: 4vh 0vh;
+	@media (min-width: 650px) {
 		padding: 4vh 2vh;
 	}
 }
 
 h1 {
 	text-align: center;
-	margin-bottom: 10px;
-	font-size: 25px;
-	@media (min-width: 550px) {
+	color: $headerColorLight;
+	font-size: 30px;
+	@media (min-width: 650px) {
 		font-size: 46px;
 	}
 }
 
 h2 {
-	font-size: 20px;
+	font-size: 24px;
 	text-align: center;
+	color: $headerColorDark;
 	padding: 25px 0 15px 0;
-	@media (min-width: 550px) {
+	@media (min-width: 650px) {
 		font-size: 38px;
 	}
 }
@@ -67,43 +51,26 @@ h3 {
 	font-size: 18px;
 	text-align: center;
 	margin: 20px 0 5px 0;
-	@media (min-width: 550px) {
+	@media (min-width: 600px) {
 		font-size: 26px;
 	}
 }
 
 h4 {
 	font-size: 15px;
+	color: $headerColorDark;
 	margin: 5px 0;
-	@media (min-width: 750px) {
+	@media (min-width: 600px) {
 		font-size: 18px;
 	}
 }
 
 p {
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.4;
-}
-
-li {
-	list-style: none;
-}
-
-a {
-	text-align: center;
-	text-decoration: none;
-	padding: 10px;
-	margin: 0;
-}
-
-.logo {
-	background-color: rgb(204, 202, 202);
-	width: 150px;
-}
-
-.grid {
-	align-content: center;
-	justify-content: center;
+	@media (min-width: 600px) {
+		font-size: 16px;
+	}
 }
 
 .image-wrapper {
@@ -119,4 +86,37 @@ a {
 	max-height: 100%;
 	max-width: 100%;
 	position: absolute;
+}
+
+%logo {
+	font-family: $logoFont;
+	font-size: 24px;
+	font-weight: bold;
+	color: $logoColor;
+	text-decoration: none;
+}
+
+%nav-list {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 0;
+}
+
+%nav-list-item {
+	list-style: none;
+	padding: 0 2px;
+	@media (min-width: 600px) {
+		padding: 0 10px;
+	}
+}
+%nav-link {
+	color: $menuColor;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 10px;
+	margin: 0;
 }

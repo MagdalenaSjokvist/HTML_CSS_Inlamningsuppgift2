@@ -1,0 +1,107 @@
+/* SECTION 5*/
+
+.section5-collage {
+	background: $bgColorSectionOdd;
+
+	& .grid {
+		@include gridCenter;
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 0 10px;
+		padding: 15px;
+		min-height: 400px;
+		@media (min-width: 750px) {
+			grid-template-rows: 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+			grid-gap: 20px;
+		}
+	}
+
+	article {
+		grid-area: 2 / 1 / span 1 / span 2;
+		max-width: 65vw;
+		min-height: 180px;
+		place-self: center;
+		z-index: 10;
+		background: #9aa5aa;
+		margin: -60px;
+		padding: 30px;
+		p {
+			color: $textColorLight;
+		}
+
+		@media (min-width: 750px) {
+			margin: -70px;
+			padding: 50px;
+			max-width: 550px;
+			@include transitionEaseInOut;
+		}
+	}
+	.image-wrapper {
+		height: 100%;
+		width: 100%;
+		max-height: 100%;
+		max-width: 100%;
+
+		&:nth-of-type(1) {
+			display: none;
+		}
+
+		&:nth-of-type(4) {
+			display: none;
+		}
+
+		&:nth-of-type(6) {
+			display: none;
+		}
+
+		&:nth-of-type(7) {
+			display: none;
+		}
+	}
+}
+
+//Media query för skärmar >=750px (placerar bilderna utifrån fullstor grid (3x5)
+
+@media (min-width: 750px) {
+	.section5-collage {
+		article {
+			grid-area: 2 / 2 / span 1 / span 3;
+		}
+
+		.image-wrapper {
+			&:nth-of-type(1) {
+				grid-area: 1 / 1 / span 2 / span 1;
+				display: unset;
+			}
+			&:nth-of-type(2) {
+				grid-area: 3 / 1 / span 1 / span 1;
+			}
+			&:nth-of-type(3) {
+				grid-area: 1 / 2 / span 1 / span 1;
+			}
+			&:nth-of-type(4) {
+				grid-area: 2 / 2 / span 2 / span 1;
+				display: unset;
+			}
+			&:nth-of-type(5) {
+				grid-area: 1 / 4 / span 1 / span 1;
+			}
+
+			&:nth-of-type(6) {
+				grid-area: 2 / 4 / span 2 / span 1;
+				display: unset;
+			}
+
+			&:nth-of-type(7) {
+				grid-area: 1 / 5 / span 2 / span 1;
+				display: unset;
+			}
+
+			&:nth-of-type(8) {
+				grid-area: 3 / 5 / span 1 / span 1;
+			}
+		}
+	}
+}

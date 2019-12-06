@@ -1,0 +1,16 @@
+@mixin gridCenter {
+	align-content: center;
+	justify-content: center;
+}
+
+@mixin transitionEaseOut {
+	transition: all ease-out 1s;
+}
+
+@mixin transitionEaseIn {
+	transition: all ease-in 1s;
+}
+
+@mixin transitionEaseInOut {
+	transition: all ease-in-out 1s;
+}

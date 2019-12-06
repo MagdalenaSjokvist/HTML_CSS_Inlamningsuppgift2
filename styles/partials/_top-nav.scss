@@ -1,0 +1,41 @@
+.top-menu {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+	background: $bgColorTopNav;
+	padding-top: 40px;
+	width: 100%;
+	@media (min-width: 600px) {
+		flex-direction: row;
+		align-items: center;
+		padding: 0px 35px;
+	}
+
+	&__logo {
+		@extend %logo;
+	}
+
+	&__nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 10vh;
+		@media (min-width: 600px) {
+			justify-content: flex-end;
+		}
+	}
+}
+
+.top-menu__nav {
+	&__links {
+		@extend %nav-list;
+	}
+	&__link {
+		@extend %nav-list-item;
+	}
+	a {
+		@extend %nav-link;
+	}
+}

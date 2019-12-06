@@ -1,25 +1,38 @@
 header {
+	@include transitionEaseIn;
 	background-image: url("/styles/images/header/images_header_header-small.jpg");
 	background-color: lightgray;
 	background-size: cover;
-	//transition: all ease-in 500ms;
 	background-position: center;
+	background-blend-mode: multiply;
+	background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 50vh;
+	height: 65vh;
 	width: 100%;
-	padding: 10%;
-	@media (min-width: 750px) {
-		height: 70vh;
-	}
+	padding: 10vw;
 
-	p {
+	.header-text {
 		text-align: center;
-		font-weight: bold;
+		p {
+			color: $textColorLight;
+			font-weight: bold;
+			max-width: 320px;
+		}
+		@media (min-width: 650px) {
+			max-width: 450px;
+			position: absolute;
+			top: 28vh;
+			left: 5vw;
+			margin-left: 7vw;
+			h1 {
+				@include transitionEaseIn;
+			}
+		}
 	}
-	@media (min-width: 550px) {
-		padding: 20%;
+	@media (min-width: 650px) {
+		padding: 25%;
 		background-image: url("/styles/images/header/layout-with-design_images_header_header-large.jpg");
 	}
 }
